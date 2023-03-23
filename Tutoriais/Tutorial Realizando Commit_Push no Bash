@@ -24,9 +24,10 @@ Para inicializar um novo repositório Git, digite "git init" (sem aspas) e press
 
 Adicione seus arquivos ao repositório usando o comando "git add" (por exemplo, "git add arquivo.txt"). Isso prepara os arquivos para serem commitados.
 
-****Melhores  comandos  git add:
+****Melhores  comandos possivies  git add:
 - git add .
   git add -A (adiciona todos os Arquivos)
+  git add *
 
 Verifique o status como o comando git status
 
@@ -47,3 +48,5 @@ Envie seus commits para o repositório remoto usando o comando "git push" (por e
 Melhor exemplo:
 git push -u origin main
 
+
+verifique erros de envio remoto. 
