@@ -1,0 +1,22 @@
+Como Clonar Repositório do GitHub pelo Bash?
+
+Para clonar um repositório Git com o Git Bash no Ubuntu, siga estes passos:
+
+Abra o terminal do Ubuntu (pressione Ctrl+Alt+T).
+Navegue até a pasta onde deseja clonar o repositório usando o comando "cd" (por exemplo, "cd /caminho/para/minha/pasta").
+
+Digite o comando "git clone" (sem aspas), seguido da URL do repositório que deseja clonar (por exemplo, "git clone https://github.com/seunome/seuprojeto.git"). Isso baixa todos os arquivos do repositório Git para a sua pasta local.
+
+
+Exemplo Coomando para clonar este repositório:
+
+git clone https://github.com/manoeltitto/dio-desafio-github-primeiro-repositorio.git
+
+Digite seu nome de usuário e senha do Github, se solicitado.
+
+Após a conclusão do comando, você terá uma cópia local do repositório Git. Você pode fazer alterações nos arquivos, adicionar novos arquivos, commitar e enviar para o repositório remoto usando comandos do Git Bash.
+
+Lembre-se de que você só pode clonar repositórios Git para os quais tem permissão de leitura. Caso contrário, você receberá uma mensagem de erro informando que não tem permissão para acessar o repositório.
+
+
+
