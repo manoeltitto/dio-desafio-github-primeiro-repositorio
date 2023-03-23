@@ -1,0 +1,49 @@
+Comandos básicos do Git Bash
+
+Para usar o Git Bash no Ubuntu, você pode seguir estes passos:
+Abra o terminal do Ubuntu (pressione Ctrl+Alt+T).
+
+Faça o clone do seu repositório caso não tenha feito
+Para clonar um repositório Git com o Git Bash no Ubuntu, siga estes passos:
+
+Abra o terminal do Ubuntu (pressione Ctrl+Alt+T).
+Navegue até a pasta onde deseja clonar o repositório usando o comando "cd" (por exemplo, "cd /caminho/para/minha/pasta").
+
+Digite o comando "git clone" (sem aspas), seguido da URL do repositório que deseja clonar (por exemplo, "git clone https://github.com/seunome/seuprojeto.git"). Isso baixa todos os arquivos do repositório Git para a sua pasta local.
+
+
+Exemplo Coomando para clonar este repositório:
+
+git clone https://github.com/manoeltitto/dio-desafio-github-primeiro-repositorio.git
+
+Digite seu nome de usuário e senha do Github, se solicitado.
+
+Navegue até a pasta do seu projeto usando o comando "cd" (por exemplo, "cd /caminho/para/meu/projeto").
+
+Para inicializar um novo repositório Git, digite "git init" (sem aspas) e pressione Enter. Este comando cria um novo repositório Git na pasta atual.
+
+Adicione seus arquivos ao repositório usando o comando "git add" (por exemplo, "git add arquivo.txt"). Isso prepara os arquivos para serem commitados.
+
+****Melhores  comandos  git add:
+- git add .
+  git add -A (adiciona todos os Arquivos)
+
+Verifique o status como o comando git status
+
+Realize o commit dos arquivos adicionados usando o comando "git commit" (por exemplo, "git commit -m 'Adicionado arquivo.txt'"). Isso confirma as mudanças feitas em seus arquivos e as adiciona ao histórico do Git.
+
+Melhor Exemplo:
+git commit -m "Inclusão das anotações do curso de Git/GitHub"
+
+git status
+
+Configure o repositório remoto usando o comando "git remote add" (por exemplo, "git remote add origin https://github.com/seunome/seuprojeto.git"). Isso define o repositório remoto para o qual você deseja enviar seus commits.
+
+
+hora do PUSH :-))
+
+Envie seus commits para o repositório remoto usando o comando "git push" (por exemplo, "git push -u origin master"). Isso envia seus commits para o repositório remoto e atualiza o histórico do Git.
+
+Melhor exemplo:
+git push -u origin main
+
