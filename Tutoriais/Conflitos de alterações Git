@@ -1,0 +1,129 @@
+Mensagem de Erro 
+
+Username for 'https://github.com': manoeltitto@hotmail.com
+Password for 'https://manoeltitto@hotmail.com@github.com': 
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+fatal: Authentication failed for 'https://github.com/manoeltitto/dio-desafio-github-primeiro-repositorio.git/'
+oo que siginifca essa mensagem acima?
+
+Essa mensagem indica que a autenticação usando senha foi removida como forma de autenticação no GitHub a partir de 13 de agosto de 2021. Isso significa que você precisa usar outra forma de autenticação para acessar o repositório no GitHub.
+
+O GitHub recomenda o uso de chaves SSH ou de tokens de acesso pessoal (personal access tokens) para autenticação em repositórios remotos. As chaves SSH são mais seguras e mais fáceis de usar do que senhas, enquanto que os tokens de acesso pessoal permitem que você use aplicativos de terceiros para acessar o GitHub.
+
+
+como posso usar a chave ja cadastrada no ubuntu e  ja habiitda no git ?
+
+Se você já tem uma chave SSH configurada no Ubuntu e adicionou a chave pública ao seu perfil do GitHub, você pode usar essa chave para autenticação ao fazer push, pull e outras operações com o Git no GitHub.
+
+Para fazer isso, siga os passos abaixo:
+
+    Abra o terminal ou prompt de comando no diretório do seu repositório local.
+    Verifique se a chave SSH está sendo usada pelo Git executando o comando ssh -T git@github.com. Se a chave SSH estiver configurada corretamente, você deve ver uma mensagem de boas-vindas do GitHub.
+
+
+$ ssh -T git@github.com
+Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+
+    Verifique o nome do remote do seu repositório executando o comando git remote -v. Certifique-se de que o endereço do remote começa com git@github.com: em vez de https://github.com/.
+    
+    Se o endereço estiver correto, você pode continuar com o próximo passo. Caso contrário, atualize o endereço do remote executando o comando git remote set-url origin git@github.com:<seu-username>/<seu-repositorio>.git, substituindo <seu-username> e <seu-repositorio> pelos valores corretos.
+
+
+$ git remote -v
+origin  git@github.com:<seu-username>/<seu-repositorio>.git (fetch)
+origin  git@github.com:<seu-username>/<seu-repositorio>.git (push)
+
+    Agora você pode usar o Git normalmente para fazer push, pull e outras operações no GitHub. Quando você fizer push ou pull, o Git usará a chave SSH configurada para autenticação.
+
+
+$ git push origin main
+
+Observação: se você estiver usando o Windows e o Git Bash, o processo é semelhante, mas você precisará usar o gerenciador de chaves SSH ssh-agent para adicionar sua chave SSH à sessão atual. Consulte a documentação oficial do Git para obter mais informações.
+
+Mensagem de Erro !!
+
+To github.com:manoeltitto/dio-desafio-github-primeiro-repositorio.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'github.com:manoeltitto/dio-desafio-github-primeiro-repositorio.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+
+
+Essa mensagem indica que você tentou fazer um push para o repositório remoto no branch main, mas o Git rejeitou a atualização porque existem commits no repositório remoto que você ainda não tem em sua cópia local. Isso geralmente ocorre quando outra pessoa ou máquina fez push de alterações para o mesmo branch no repositório remoto.
+
+Para resolver o problema, você precisa integrar as alterações do repositório remoto em sua cópia local antes de fazer push novamente. Você pode fazer isso com o comando git pull:
+
+
+git pull origin main
+
+Isso fará o download das alterações mais recentes do repositório remoto e as mesclará com sua cópia local. Você pode então fazer suas alterações e fazer push novamente:
+
+
+
+git push origin main
+
+Se houver conflitos entre as alterações locais e as alterações remotas, o Git irá avisá-lo e pedir que você resolva os conflitos antes de fazer push.
+
+Mensagem de Erro!!
+
+From github.com:manoeltitto/dio-desafio-github-primeiro-repositorio
+ * branch            main       -> FETCH_HEAD
+hint: You have divergent branches and need to specify how to reconcile them.
+hint: You can do so by running one of the following commands sometime before
+hint: your next pull:
+hint: 
+hint:   git config pull.rebase false  # merge
+hint:   git config pull.rebase true   # rebase
+hint:   git config pull.ff only       # fast-forward only
+hint: 
+hint: You can replace "git config" with "git config --global" to set a default
+hint: preference for all repositories. You can also pass --rebase, --no-rebase,
+hint: or --ff-only on the command line to override the configured default per
+hint: invocation.
+fatal: Need to specify how to reconcile divergent branches.
+ pode e ajudar ainda?
+
+Essa mensagem indica que existem divergências entre o branch main em seu repositório local e o branch main no repositório remoto. O Git não sabe como reconciliá-los automaticamente, então ele está pedindo que você especifique como deseja proceder antes de executar o comando git pull.
+
+Existem algumas opções que você pode especificar para resolver divergências de branch:
+
+    Merge: combina as alterações do branch local com as do branch remoto em um novo commit de merge.
+    Rebase: aplica suas alterações em cima das alterações do branch remoto, criando uma nova sequência de commits.
+    Fast-forward: aplica as alterações do branch remoto diretamente em cima do branch local, movendo o ponteiro do branch para a posição mais recente.
+
+Para escolher uma das opções acima, você pode executar um dos seguintes comandos:
+
+
+
+SOLUÇÃO
+
+
+
+Uma maneira de resolver esse problema é usar a opção --rebase ao executar o comando git pull, que tentará aplicar as alterações locais ao topo do branch remoto em vez de mesclá-las. Para fazer isso, execute o seguinte comando:
+
+
+
+git pull --rebase origin main
+
+Após a reconciliação das alterações, você pode usar o comando git push para enviar suas alterações locais para o repositório remoto. Se você tiver problemas com conflitos de mesclagem durante o rebase, o Git o notificará e você precisará resolvê-los manualmente antes de continuar com o git push.
+
+
+Recebi esta mensagem:  --rebase origin main
+From github.com:manoeltitto/dio-desafio-github-primeiro-repositorio
+ * branch            main       -> FETCH_HEAD
+Successfully rebased and updated refs/heads/main.
+
+Essa mensagem indica que você executou com sucesso um comando git pull com a opção --rebase e que o rebase foi executado com sucesso, resultando em uma atualização do seu branch local com o branch remoto.
+
+A mensagem Successfully rebased and updated refs/heads/main indica que o rebase foi concluído com sucesso e o branch main foi atualizado com as alterações mais recentes do repositório remoto.
+
+Agora você pode usar o comando git push para enviar suas alterações locais para o repositório remoto. Verifique se você está no branch correto e execute o comando git push sem opções adicionais, como git push origin main, para enviar as alterações para o branch main remoto.
+
+
+
